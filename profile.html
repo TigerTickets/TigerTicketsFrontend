@@ -10,68 +10,41 @@
     var data = {
 	  "tickets": [
 	    {
-	      "Name": "50 Years Muslim Life @ Princeton",
-	      "Group": "Muslim Alumni Event 2017",
-	      "Time": "11:00 AM",
-	      "Date": "Saturday, April 01, 2017",
-	      "Location": "Carl A. Fields Center",
-	      "Image": "https://tickets.princeton.edu/ArticleMedia/Images/Muslim%20Alumni%20Event.jpg",
-	      "BuyReq": 0,
-	      "SellReq": 5,
+	      "name": "Disiac",
+	      "Time": "10:00-12:00",
+	      "Sell": 1,
+	      "Buy": 0,
 	      "Price": 8
 	    },
 	    {
-	      "Name": "Student Playwrights Festival",
-	      "Group": "Theatre Intime",
-	      "Time": "2:00 PM",
-	      "Date": "Saturday, April 01, 2017",
-	      "Location": "Hamilton Murray Theater, Princeton",
-	      "Image": "https://tickets.princeton.edu/ArticleMedia/Images/Intime%202016-2017.jpg",
-	      "BuyReq": 6,
-	      "SellReq": 0,
+	      "name": "BodyHype",
+	      "Time": "10:00-12:00",
+	      "Sell": 10,
+	      "Buy": 0,
 	      "Price": 8
 	    },
 	    {
-	      "Name": "No Me Digas!",
-	      "Group": "Mas Flow Dance Company",
-	      "Time": "6:00 PM",
-	      "Date": "Saturday, April 01, 2017",
-	      "Location": "Frist Theatre",
-	      "Image": "https://tickets.princeton.edu/ArticleMedia/Images/Mas%20Flow%201.jpg",
-	      "BuyReq": 0,
-	      "SellReq": 3,
+	      "name": "Expressions",
+	      "Time": "10:00-12:00",
+	      "Sell": 0,
+	      "Buy": 2,
 	      "Price": 8
 	    }
 	  ]
 	}
 
-	var tickets_html = ""
-
-	for (i = 0; i < data["tickets"].length; i++){
-
-		var info = data["tickets"][i]["Date"]+" "+data["tickets"][i]["Time"]+"<br>"+data["tickets"][i]["Location"]+"<br><b>"+data["tickets"][i]["Group"]+"</b>"
-
-		var buy_text = "Buy"
-		if(data["tickets"][i]["SellReq"] > 0)
-			buy_text += " <b>("+data["tickets"][i]["SellReq"]+" Available!)</b>"
-
-		var sell_text = "Sell"
-		if(data["tickets"][i]["BuyReq"] > 0)
-			sell_text += " <b>("+data["tickets"][i]["BuyReq"]+" Requests!)</b>"
-
-		tickets_html += "<div class='col-md-3 col-sm-6 hero-feature'>"+
-	                "<div class='thumbnail'>"+
-	                    "<img src="+data["tickets"][i]["Image"]+" alt=''>"+
-	                    "<div class='caption'>"+
-	                        "<h3>"+data["tickets"][i]["Name"]+"</h3>"+
-	                        "<p>"+info+"</p>"+
-	                        "<p>"+
-	                            "<a href='#' class='btn btn-primary'>"+buy_text+"</a> <a href='#' class='btn btn-default'>"+sell_text+"</a>"+
-	                        "</p>"+
-	                    "</div>"+
-	                "</div>"+
-	            "</div>"
-    }
+	var tickets_html = "<div class='col-md-3 col-sm-6 hero-feature'>"+
+                "<div class='thumbnail'>"+
+                    "<img src='http://placehold.it/800x500' alt=''>"+
+                    "<div class='caption'>"+
+                        "<h3>Feature Label</h3>"+
+                        "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>"+
+                        "<p>"+
+                            "<a href='#' class='btn btn-primary'>Buy Now!</a> <a href='#' class='btn btn-default'>More Info</a>"+
+                        "</p>"+
+                    "</div>"+
+                "</div>"+
+            "</div>"
 
 	$(document).ready(function(){
     	$("#ticket-listing").html(tickets_html)
@@ -114,13 +87,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Tiger Tickets</a>
+                <a class="navbar-brand" href="#">Start Bootstrap</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">Ticketing</a>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -134,8 +113,8 @@
 
         <!-- Jumbotron Header -->
         <header class="jumbotron hero-spacer">
-            <h1>Tiger Tickets</h1>
-            <p>Need to buy or sell a ticket? Do it here!</p>
+            <h1>A Warm Welcome!</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
             <p><a class="btn btn-primary btn-large">Call to action!</a>
             </p>
         </header>
