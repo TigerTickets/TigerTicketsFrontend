@@ -7,48 +7,127 @@
     
     <script src="js/jquery.js"></script>
     <script>
-    var data = {
-	  "tickets": [
-	    {
-	      "name": "Disiac",
-	      "Time": "10:00-12:00",
-	      "Sell": 1,
-	      "Buy": 0,
-	      "Price": 8
-	    },
-	    {
-	      "name": "BodyHype",
-	      "Time": "10:00-12:00",
-	      "Sell": 10,
-	      "Buy": 0,
-	      "Price": 8
-	    },
-	    {
-	      "name": "Expressions",
-	      "Time": "10:00-12:00",
-	      "Sell": 0,
-	      "Buy": 2,
-	      "Price": 8
-	    }
-	  ]
+
+    <!-- Generate Buy Data -->
+    var buyData = {
+    "buy-tickets": [
+        {
+          "Name": "Student Playwrights Festival",
+          "Group": "Theatre Intime",
+          "Time": "2:00 PM",
+          "Date": "Saturday, April 01, 2017",
+          "Location": "Hamilton Murray Theater, Princeton",
+          "Image": "https://tickets.princeton.edu/ArticleMedia/Images/Intime%202016-2017.jpg",
+          "BuyReq": 6,
+          "SellReq": 0,
+          "Price": 8
+        },
+        {
+          "Name": "No Me Digas!",
+          "Group": "Mas Flow Dance Company",
+          "Time": "6:00 PM",
+          "Date": "Saturday, April 01, 2017",
+          "Location": "Frist Theatre",
+          "Image": "https://tickets.princeton.edu/ArticleMedia/Images/Mas%20Flow%201.jpg",
+          "BuyReq": 0,
+          "SellReq": 3,
+          "Price": 8
+        }
+      ]
 	}
 
-	var profile_html = "<div class='col-lg-12 col-md-6 hero-feature'>"+
-                "<div class='thumbnail'>"+
-                    "<img src='http://placehold.it/800x500' alt=''>"+
-                    "<div class='caption'>"+
-                        "<h3>Feature Label</h3>"+
-                        "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>"+
-                        "<p>"+
-                            "<a href='#' class='btn btn-primary'>Buy Now!</a> <a href='#' class='btn btn-default'>More Info</a>"+
-                        "</p>"+
+    <!-- Generate Sell Data -->
+    var sellData = {
+    "sell-tickets": [
+        {
+          "Name": "50 Years Muslim Life @ Princeton",
+          "Group": "Muslim Alumni Event 2017",
+          "Time": "11:00 AM",
+          "Date": "Saturday, April 01, 2017",
+          "Location": "Carl A. Fields Center",
+          "Image": "https://tickets.princeton.edu/ArticleMedia/Images/Muslim%20Alumni%20Event.jpg",
+          "BuyReq": 0,
+          "SellReq": 5,
+          "Price": 8
+        }
+      ]
+    }
+
+    <!-- Generate Buying Script for Ticket Requests -->
+    var buying_html = ""
+
+    for (i = 0; i < buyData["buy-tickets"].length; i++){
+
+        var btime = buyData["buy-tickets"][i]["Date"]+" "+buyData["buy-tickets"][i]["Time"]
+        var bloc = buyData["buy-tickets"][i]["Location"]
+        var bgroup = buyData["buy-tickets"][i]["Group"]
+
+        buying_html += "<div class='row'>"+
+                    "<div class='col-md-2'>"+
+                        "<a href='#'>" +
+                            "<img class = 'img-responsive' src="+buyData["buy-tickets"][i]["Image"]+" alt=''>"+
+                        "</a>"+
+                    "</div>"+
+                    "<div class='col-md-3'>"+
+                        "<h3>"+buyData["buy-tickets"][i]["Name"]+"</h3>"+
+                    "</div>"+
+                    "<div class='col-md-5'>"+
+                        "<h4>"+btime+"</h4>"+
+                        "<h4>"+bloc+"</h4>"+
+                        "<h4>"+bgroup+"</h4>"+
+                    "</div>"+
+                    "<div class='col-md-2'>"+
+                        "<a class='btn btn-primary' href='#''>Delete <span class='glyphicon'></span></a>"+
                     "</div>"+
                 "</div>"+
-            "</div>"
+            "<hr>"
+    }
+
+
+    <!-- Generate Selling Script for Ticket Requests -->
+    var selling_html = ""
+
+    for (i = 0; i < sellData["sell-tickets"].length; i++){
+
+        var stime = sellData["sell-tickets"][i]["Date"]+" "+sellData["sell-tickets"][i]["Time"]
+        var sloc = sellData["sell-tickets"][i]["Location"]
+        var sgroup = sellData["sell-tickets"][i]["Group"]
+
+        selling_html += "<div class='row'>"+
+                    "<div class='col-md-2'>"+
+                        "<a href='#'>" +
+                            "<img class = 'img-responsive' src="+sellData["sell-tickets"][i]["Image"]+" alt=''>"+
+                        "</a>"+
+                    "</div>"+
+                    "<div class='col-md-3'>"+
+                        "<h3>"+sellData["sell-tickets"][i]["Name"]+"</h3>"+
+                    "</div>"+
+                    "<div class='col-md-5'>"+
+                        "<h4>"+stime+"</h4>"+
+                        "<h4>"+sloc+"</h4>"+
+                        "<h4>"+sgroup+"</h4>"+
+                    "</div>"+
+                    "<div class='col-md-2'>"+
+                        "<a class='btn btn-primary' href='#''>Delete <span class='glyphicon'></span></a>"+
+                    "</div>"+
+                "</div>"+
+            "<hr>"
+    }
+
+    profile = buying_html +
+        "<div class='row text-left'>"+
+            "<div class='col-lg-12'>"+
+                "<h3>Ticket Sell Requests</h3>"+
+            "</div>"+
+        "</div>"+
+        "<hr>"+
+        selling_html
+
 
 	$(document).ready(function(){
-    	$("#profile-listing").html(profile_html)
+    	$("#profile-page").html(profile)
 	});
+
 	</script>
 
     <meta charset="utf-8">
@@ -87,7 +166,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Tiger Tickets</a>
+                <a class="navbar-brand" href="#">TigerTickets</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -108,32 +187,32 @@
 
         <!-- Jumbotron Header -->
         <header class="jumbotron hero-spacer">
-            <h1>Profile</h1>
+            <h1>My Profile</h1>
             <p>Keep track of your ticket requests in one easy location.</p>
         </header>
 
-        <hr>
-
         <!-- Title -->
-        <div class="row">
+        <div class="row text-left">
             <div class="col-lg-12">
-                <h3>Outstanding Ticket Requests</h3>
+                <h3>Ticket Buy Requests</h3>
             </div>
         </div>
         <!-- /.row -->
 
+        <hr>
+
         <!-- Page Features -->
-        <div class="row text-center", id="profile-listing">
+        <div class="row text-center", id="profile-page">
 
         <!-- /.row -->
 
         <hr>
-
+        
         <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; TigerTickets 2017</p>
                 </div>
             </div>
         </footer>
