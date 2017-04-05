@@ -82,7 +82,7 @@
 							"<h3>"+sampleData["shows"][i]["title"]+"</h3>"+
 							"<p>"+info+"</p>"+
 							"<p>"+
-								"<a href='#' class='btn btn-primary'>"+buy_text+"</a> <a href='#' class='btn btn-default'>"+sell_text+"</a>"+
+								"<button id='showBuyButton' class='btn btn-primary'>"+buy_text+"</button> <button id='showSellButton' class='btn btn-default'>"+sell_text+"</button>"+
 							"</p>"+
 						"</div>"+
 					"</div>"+
@@ -91,6 +91,42 @@
 
 	$(document).ready(function(){
 		$("#ticket-listing").html(show_html)
+
+		// Get the modal
+		var buyPopUp = document.getElementById('buyModal');
+		var sellPopUp = document.getElementById('sellModal')
+
+		// Get the button that opens the modal
+		var buyButton = document.getElementById("showBuyButton");
+		var sellButton = document.getElementById("showSellButton");
+
+		// Get the <span> element that closes the modals
+		var buyPopUpClose = buyPopUp.getElementsByClassName("close")[0];
+		var sellPopUpClose = sellPopUp.getElementsByClassName("close")[0];
+
+		// When the user clicks the button, open the modal 
+		buyButton.onclick = function() {
+    	buyPopUp.style.display = "block";
+		}
+		sellButton.onclick = function() {
+		sellPopUp.style.display = "block"
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		buyPopUpClose.onclick = function() {
+	    buyPopUp.style.display = "none";
+		}
+		sellPopUpClose.onclick = function() {
+	    sellPopUp.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+    	if ((event.target == buyPopUp) || (event.target == sellPopUp)) {
+        	buyPopUp.style.display = "none";
+        	sellPopUp.style.display = "none";
+    	}
+	}
 	});
 	</script>
 
@@ -186,6 +222,43 @@
 	</div>
 	<!-- /.container -->
 
+	<!-- Buy Modal -->
+	<div id="buyModal" class="modal">
+
+  		<!-- Modal content -->
+  		<div class="modal-content">
+    		<div class="modal-header">
+      			<span class="close">&times;</span>
+      			<h2></h2>
+    		</div>
+    		<div class="modal-body">
+      			<p>Buy request confirmed</p>
+    		</div>
+    		<div class="modal-footer">
+      			<h3>Hi  Jon</h3>
+    		</div>
+  		</div>
+
+	</div>
+
+	<!-- Sell Modal -->
+	<div id="sellModal" class="modal">
+
+  		<!-- Modal content -->
+  		<div class="modal-content">
+    		<div class="modal-header">
+      			<span class="close">&times;</span>
+      			<h2></h2>
+    		</div>
+    		<div class="modal-body">
+      			<p>Sell request confirmed</p>
+    		</div>
+    		<div class="modal-footer">
+      			<h3>Hi  Jon</h3>
+    		</div>
+  		</div>
+
+	</div>
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
