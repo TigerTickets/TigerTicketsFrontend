@@ -65,7 +65,7 @@
         buying_html += "<div class='row' id='buying"+i+"'>"+
                     "<div class='col-md-2'>"+
                         "<a href='#'>" +
-                            "<img class = 'img-responsive' src="+buyData["buy-tickets"][i]["Image"]+" alt=''>"+
+                            "<img class = 'center-block' src="+buyData["buy-tickets"][i]["Image"]+" alt=''>"+
                         "</a>"+
                     "</div>"+
                     "<div class='col-md-3'>"+
@@ -77,7 +77,7 @@
                         "<h4>"+bgroup+"</h4>"+
                     "</div>"+
                     "<div class='col-md-2'>"+
-                        "<button class='btn btn-primary' data-target='#confirm-delete' data-href='buying"+i+"' data-toggle='modal'>Delete <span class='glyphicon'></span></button>"+
+                        "<button class='btn btn-primary' data-target='#confirm-delete' data-href='buying"+i+"' data-toggle='modal' id = 'delete"+i+"'>Delete <span class='glyphicon'></span></button>"+
                     "</div>"+
                 "</div>"+
             "<hr>"
@@ -96,7 +96,7 @@
         selling_html += "<div class='row' id='selling"+i+"'>"+
                     "<div class='col-md-2'>"+
                         "<a href='#'>" +
-                            "<img class = 'img-responsive' src="+sellData["sell-tickets"][i]["Image"]+" alt=''>"+
+                            "<img class = 'center-block' src="+sellData["sell-tickets"][i]["Image"]+" alt=''>"+
                         "</a>"+
                     "</div>"+
                     "<div class='col-md-3'>"+
@@ -129,10 +129,13 @@
         "<hr>"+
         selling_html
 
-
     $(document).ready(function(){
         $("#profile-page").html(profile)
-       });
+
+        $("#delete").click(function(){
+            $("#buying0").hide();
+        });
+    });
 
     </script>
 
