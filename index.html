@@ -82,7 +82,7 @@
 							"<h3>"+sampleData["shows"][i]["title"]+"</h3>"+
 							"<p>"+info+"</p>"+
 							"<p>"+
-								"<button id='showBuyButton' class='btn btn-primary'>"+buy_text+"</button> <button id='showSellButton' class='btn btn-default'>"+sell_text+"</button>"+
+								"<button class='btn btn-primary' data-target='#confirmBuyModal' data-href='showBuy"+i+"' data-toggle='modal'>"+buy_text+"</button> <button class='btn btn-default' data-target='#confirmSellModal' data-href='showSell"+i+"' data-toggle='modal'>"+sell_text+"</button>"+
 							"</p>"+
 						"</div>"+
 					"</div>"+
@@ -93,8 +93,8 @@
 		$("#ticket-listing").html(show_html)
 
 		// Get the modal
-		var buyPopUp = document.getElementById('buyModal');
-		var sellPopUp = document.getElementById('sellModal')
+		var buyPopUp = document.getElementById('confirmBuyModal');
+		var sellPopUp = document.getElementById('confirmSellModal')
 
 		// Get the button that opens the modal
 		var buyButton = document.getElementById("showBuyButton");
@@ -223,41 +223,43 @@
 	<!-- /.container -->
 
 	<!-- Buy Modal -->
-	<div id="buyModal" class="modal">
+	<div id="confirmBuyModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="buyConfirm" aria-hidden="true">
 
   		<!-- Modal content -->
-  		<div class="modal-content">
-    		<div class="modal-header">
-      			<span class="close">&times;</span>
-      			<h2></h2>
-    		</div>
-    		<div class="modal-body">
-      			<p>Buy request confirmed</p>
-    		</div>
-    		<div class="modal-footer">
-      			<h3>Hi  Jon</h3>
-    		</div>
+  		<div class="modal-dialog">
+  			<div class="modal-content">
+    			<div class="modal-header">
+      				<span class="close" data-dismiss="modal">&times;</span>
+      				<h2></h2>
+    			</div>
+    			<div class="modal-body">
+      				<p>Buy request confirmed</p>
+    			</div>
+    			<div class="modal-footer">
+      				<h3>Hi  Jon</h3>
+    			</div>
+  			</div>
   		</div>
-
 	</div>
 
 	<!-- Sell Modal -->
-	<div id="sellModal" class="modal">
+	<div id="confirmSellModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="sellConfirm" aria-hidden="true">
 
   		<!-- Modal content -->
-  		<div class="modal-content">
-    		<div class="modal-header">
-      			<span class="close">&times;</span>
-      			<h2></h2>
-    		</div>
-    		<div class="modal-body">
-      			<p>Sell request confirmed</p>
-    		</div>
-    		<div class="modal-footer">
-      			<h3>Hi  Jon</h3>
-    		</div>
+  		<div class="modal-dialog">
+	  		<div class="modal-content">
+    			<div class="modal-header">
+      				<span class="close" data-dismiss="modal">&times;</span>
+	  				<h2></h2>
+    			</div>
+    			<div class="modal-body">
+	  				<p>Sell request confirmed</p>
+    			</div>
+    			<div class="modal-footer">
+      				<h3>Hi  Jon</h3>
+    			</div>
+  			</div>
   		</div>
-
 	</div>
 
 	<!-- Bootstrap Core JavaScript -->
